@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2245" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.2425" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/heisenberg.xml" value="0.2245" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2245" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/navigation_characters.xml" value="0.10400000000000001" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/navigation_deaths.xml" value="0.147" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/navigation_episodes.xml" value="0.10400000000000001" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/navigation_home.xml" value="0.2245" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/navigation_quotes.xml" value="0.147" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/selector.xml" value="0.151" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/shape_yellow_rectangle.xml" value="0.151" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/splash04.xml" value="0.1475" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/font/font.xml" value="0.40296220633299284" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/activity_main.xml" value="0.35625" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/activity_splash.xml" value="0.35625" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/activity_start.xml" value="0.3638888888888889" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_characters.xml" value="0.35625" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_deaths.xml" value="0.3734375" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_episodes.xml" value="0.3734375" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_home.xml" value="0.3734375" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_quotes.xml" value="0.3734375" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3734375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
