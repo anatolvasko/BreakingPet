@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "874969242925",
+    "project_id": "breaking-pet",
+    "storage_bucket": "breaking-pet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874969242925:android:f08be0c184b5cca413c7a4",
+        "android_client_info": {
+          "package_name": "com.example.breakingpet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874969242925-ac4ufnodi3845evavskul41l72no6le1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkmBwH4_cBpDFLA7fKXyAMz2k5nKAGPbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874969242925-ac4ufnodi3845evavskul41l72no6le1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

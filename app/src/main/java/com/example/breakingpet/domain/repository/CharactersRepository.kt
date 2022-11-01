@@ -1,9 +1,9 @@
 package com.example.breakingpet.domain.repository
 
-import com.example.breakingpet.domain.models.Character
+import com.example.breakingpet.domain.model.characters.Character
 
 interface CharactersRepository {
 
-    suspend fun getCharactersList(): List<Character>
+    suspend fun getCharactersList(): ArrayList<Character>
 
 }
