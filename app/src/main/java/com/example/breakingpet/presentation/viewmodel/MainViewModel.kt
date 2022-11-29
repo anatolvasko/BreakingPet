@@ -20,13 +20,10 @@ class MainViewModel @Inject constructor(
     val isLoading = _isLoading.asStateFlow()
 
 
-
-
-
     //splash screen
     init {
         viewModelScope.launch {
-            delay(700)
+            delay(500)
             _isLoading.value = false
         }
     }

@@ -1,20 +1,35 @@
 package com.example.breakingpet.data.database.entities
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.breakingpet.domain.model.episodes.Episode
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "episodes")
 data class EpisodeEntity(
     @PrimaryKey(autoGenerate = true)
     val idPrimary: Int? = null,
-    @ColumnInfo(name = "episode_id")
-    val episodeID: Long,
+    @SerializedName("episode_id")
+    val episodeID: Int,
     val title: String,
     val season: String,
-    @ColumnInfo(name = "air_date")
+    @SerializedName("air_date")
     val airDate: String,
     val characters: List<String>,
-    val episode: String
-)
+    val episode: String,
+    val series: String
+) {
+
+    fun toEpisode() : Episode {
+        return Episode(
+            episodeID = episodeID,
+            title = title,
+            season = season,
+            airDate = airDate,
+            characters = characters,
+            episode = episode,
+            series = series
+        )
+    }
+
+}

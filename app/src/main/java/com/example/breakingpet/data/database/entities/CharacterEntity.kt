@@ -1,17 +1,17 @@
 package com.example.breakingpet.data.database.entities
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
 import com.example.breakingpet.domain.model.characters.Character
 import com.google.gson.Gson
+import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "characters")
 data class CharacterEntity(
     @PrimaryKey(autoGenerate = true)
     val idPrimary: Int? = null,
-    @ColumnInfo(name = "char_id")
+    @SerializedName( "char_id")
     val characterID: Int,
     val name: String,
     val nickname: String,
@@ -23,7 +23,6 @@ data class CharacterEntity(
     val category: String,
     val appearance: List<Int>
 ) {
-
     fun toCharacter(): Character {
         return Character (
             characterID = characterID,

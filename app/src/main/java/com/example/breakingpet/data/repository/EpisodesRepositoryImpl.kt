@@ -1,29 +1,46 @@
 package com.example.breakingpet.data.repository
 
 import com.example.breakingpet.data.database.dao.EpisodesDao
-import com.example.breakingpet.data.network.RequestEpisodes
+import com.example.breakingpet.data.database.entities.EpisodeEntity
+import com.example.breakingpet.data.network.episodes.EpisodesApi
 import com.example.breakingpet.domain.model.episodes.Episode
 import com.example.breakingpet.domain.repository.EpisodesRepository
+import com.example.breakingpet.utils.Resource
+import com.example.breakingpet.utils.networkBoundResource
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class EpisodesRepositoryImpl @Inject constructor(
-    private val episodesDao: EpisodesDao
+    private val episodesDao: EpisodesDao,
+    private val episodesApi: EpisodesApi
 ) : EpisodesRepository {
-    private val requestEpisodes = RequestEpisodes()
 
-    override suspend fun getEpisodesList(): ArrayList<Episode> {
-        val episodesList = ArrayList<Episode>()
+    override fun getEpisodesList(): Flow<Resource<List<Episode>>> {
 
-        val responseObj = requestEpisodes.getResponseObj()
+        return networkBoundResource(
+            query = {
+                toEpisodesList(episodesDao.getAllEpisodes())
+            },
+            fetch = {
+                delay(2000)
+                episodesApi.getAllEpisodes().map { it.toEpisode() }
 
-        if (responseObj.size>0){
-            for(item in responseObj){
-                if (item.episodeID<=62){
-                    episodesList.add(item)
-                }
+            },
+            saveFetchResult = { episodes ->
+                episodesDao.deleteAllEpisodes()
+                episodesDao.insertEpisode(episodes.map { it.toEpisodeEntity() })
             }
-        }
-
-        return episodesList
+        )
     }
+
+    private fun toEpisodesList(list: Flow<List<EpisodeEntity>>): Flow<List<Episode>> {
+        return list.map { listEpisodesEntity ->
+            listEpisodesEntity.map { episodeEntity ->
+                episodeEntity.toEpisode()
+            }.filter { it.series.contains("Breaking Bad") }
+        }
+    }
+
 }

@@ -2,20 +2,22 @@ package com.example.breakingpet.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.breakingpet.data.database.entities.CharacterEntity
 import com.example.breakingpet.data.database.entities.EpisodeEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface EpisodesDao {
 
-    @Insert
-    fun insertEpisode(episodeEntity: EpisodeEntity)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertEpisode(episodes: List<EpisodeEntity>)
 
     @Query( "SELECT * FROM episodes" )
-    fun getAllEpisodes() : List<EpisodeEntity>
+    fun getAllEpisodes() : Flow<List<EpisodeEntity>>
 
     @Query("DELETE FROM episodes")
-    fun clearTable()
+    suspend fun deleteAllEpisodes()
 
 }

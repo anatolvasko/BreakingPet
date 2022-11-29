@@ -4,16 +4,27 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI.setupWithNavController
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.breakingpet.R
 import com.example.breakingpet.databinding.ActivityMainBinding
 import com.example.breakingpet.presentation.fragments.*
+import com.example.breakingpet.presentation.fragments.characters.CharactersFragment
 import com.example.breakingpet.presentation.viewmodel.MainViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModels()
+    private lateinit var navController : NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,49 +33,29 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment())
-            .commit()
+        val navHost =
+            supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
+        navController = navHost.navController
 
-        binding.bottomNavigationView.selectedItemId = R.id.home
-        supportActionBar?.title = "Home"
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, HomeFragment()).commit()
+        val appBarConfiguration =
+            AppBarConfiguration(
+                setOf(
+                    R.id.homeFragment,
+                    R.id.charactersFragment,
+                    R.id.episodesFragment,
+                    R.id.quotesFragment,
+                    R.id.deathsFragment
+                )
+            )
 
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.home -> {
-                    supportActionBar?.title = "Home"
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, HomeFragment()).commit()
-                }
-                R.id.characters -> {
-                    supportActionBar?.title = "Characters"
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, CharactersFragment()).commit()
-                }
-                R.id.episodes -> {
-                    supportActionBar?.title = "Episodes"
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, EpisodesFragment()).commit()
-                }
-                R.id.quotes -> {
-                    supportActionBar?.title = "Quotes"
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, QuotesFragment()).commit()
-                }
-                R.id.death -> {
-                    supportActionBar?.title = "Deaths"
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, DeathsFragment()).commit()
-                }
+        setupActionBarWithNavController(navController, appBarConfiguration)
 
-            }
-            true
-        }
-
-
+        setupWithNavController(binding.bottomNavigationView, navController)
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
 
 }
 

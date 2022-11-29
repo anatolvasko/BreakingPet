@@ -6,6 +6,7 @@
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2245" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.2425" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/character_without_photo.xml" value="0.3" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/error_green01.xml" value="0.247" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/heisenberg.xml" value="0.2245" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2245" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/drawable/navigation_characters.xml" value="0.10400000000000001" />
@@ -23,13 +24,15 @@
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/activity_splash.xml" value="0.35625" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/activity_start.xml" value="0.3638888888888889" />
-        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_characters.xml" value="0.2" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_character_details.xml" value="0.4" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_characters.xml" value="0.4" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_deaths.xml" value="0.3734375" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_episode_details.xml" value="0.35625" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_episodes.xml" value="0.2" />
-        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/fragment_quotes.xml" value="0.3734375" />
-        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/recycler_character_item.xml" value="0.1" />
-        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/recycler_episode_item.xml" value="0.1" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/recycler_character_item.xml" value="0.4" />
+        <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/layout/recycler_episode_item.xml" value="0.176" />
         <entry key="..\:/Users/vasko/AndroidStudioProjects/BreakingPet/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3734375" />
       </map>
     </option>

@@ -1,9 +1,8 @@
 package com.example.breakingpet.domain.model.characters
 
-import androidx.room.TypeConverter
 import com.example.breakingpet.data.database.entities.CharacterEntity
-import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Character(
     @SerializedName("char_id")
@@ -17,7 +16,7 @@ data class Character(
     val birthday: String,
     val category: String,
     val appearance: List<Int>
-) {
+) : Serializable{
 
     fun toCharacterEntity() = CharacterEntity(
         characterID = characterID,
@@ -35,16 +34,5 @@ data class Character(
 }
 
 
-/*@SerializedName("char_id")
-val charID: Int,
-val name: String,
-val nickname: String,
-val img: String,
-val portrayed: String,
-val occupation: List<String>,
-val status: String,
 
-val birthday: String,
-val category: String,
-val appearance: List<Int>*/
 

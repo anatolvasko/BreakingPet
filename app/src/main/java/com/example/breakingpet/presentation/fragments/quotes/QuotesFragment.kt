@@ -1,4 +1,4 @@
-package com.example.breakingpet.presentation.fragments
+package com.example.breakingpet.presentation.fragments.quotes
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
