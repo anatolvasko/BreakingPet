@@ -9,8 +9,4 @@ interface EpisodesApi {
     @GET("episodes")
     suspend fun getAllEpisodes() : List<EpisodeEntity>
 
-    companion object {
-        const val BASE_URL = "https://www.breakingbadapi.com/api/"
-    }
-
 }

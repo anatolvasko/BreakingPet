@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName
 data class CharacterEntity(
     @PrimaryKey(autoGenerate = true)
     val idPrimary: Int? = null,
-    @SerializedName( "char_id")
+    @SerializedName( "id")
     val characterID: Int,
     val name: String,
     val nickname: String,

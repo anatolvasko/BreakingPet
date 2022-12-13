@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 data class EpisodeEntity(
     @PrimaryKey(autoGenerate = true)
     val idPrimary: Int? = null,
-    @SerializedName("episode_id")
+    @SerializedName("id")
     val episodeID: Int,
     val title: String,
     val season: String,

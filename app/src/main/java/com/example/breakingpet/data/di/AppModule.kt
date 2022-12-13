@@ -23,7 +23,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun baseUrl() = "https://www.breakingbadapi.com/api/"
+    fun baseUrl() = "https://6396667fa68e43e41802ec6a.mockapi.io/api/"
 
     @Provides
     @Singleton
@@ -40,7 +40,7 @@ object AppModule {
     @Singleton
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
-            .baseUrl(CharactersApi.BASE_URL)
+            .baseUrl(baseUrl())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

@@ -8,6 +8,17 @@
     android:layout_height="match_parent"
     tools:context=".presentation.fragments.home.HomeFragment">
 
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube_player_view"
+        app:videoId="VaOt6tXyf2Y"
+        app:autoPlay="false"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <!--<com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_player"

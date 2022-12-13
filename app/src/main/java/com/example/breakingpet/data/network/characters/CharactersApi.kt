@@ -10,8 +10,8 @@ interface CharactersApi {
     @GET("characters")
     suspend fun getAllCharacters() : List<CharacterEntity>
 
-    companion object {
+    /*companion object {
         const val BASE_URL = "https://www.breakingbadapi.com/api/"
-    }
+    }*/
 
 }
