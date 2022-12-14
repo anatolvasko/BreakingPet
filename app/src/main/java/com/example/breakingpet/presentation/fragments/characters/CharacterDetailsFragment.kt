@@ -36,9 +36,9 @@ class CharacterDetailsFragment : Fragment() {
             nameValue.text = args.character.name
             nicknameValue.text = args.character.nickname
             portrayedValue.text = args.character.portrayed
-            occupationValue.text = args.character.occupation.toString()
+            occupationValue.text = args.character.occupation.toString().filter { it !in setOf('[', ']') }
             statusValue.text = args.character.status
-            appearanceValue.text = args.character.appearance.toString()
+            appearanceValue.text = args.character.appearance.toString().filter { it !in setOf('[', ']') }
         }
 
     }

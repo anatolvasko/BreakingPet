@@ -41,15 +41,19 @@ class EpisodesViewModel @Inject constructor(
 
     suspend fun getImageList() {
         imagesUrlList.clear()
-        mDataBase.collection("posters")
-            .get()
-            .addOnSuccessListener {
-                for (document in it) {
-                    for (i in 1..62) {
-                        val imageUrl = document.data[i.toString()]
-                        imagesUrlList.add(imageUrl as String)
+        withContext(Dispatchers.IO) {
+            mDataBase.collection("posters")
+                .get()
+                .addOnSuccessListener {
+                    for (document in it) {
+                        for (i in 1..62) {
+                            val imageUrl = document.data[i.toString()]
+                            imagesUrlList.add(imageUrl as String)
+                        }
                     }
                 }
-            }.await()
+        }.await()
+
+
     }
 }

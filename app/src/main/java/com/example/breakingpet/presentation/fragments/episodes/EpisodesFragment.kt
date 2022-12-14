@@ -36,15 +36,15 @@ class EpisodesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.episodesProgressbar.isVisible = true
 
         episodesViewModel.allEpisodes.observe(viewLifecycleOwner) {
 
             CoroutineScope(Dispatchers.IO).launch {
 
-                val urls = async { episodesViewModel.getImageList() }
 
                 if (episodesViewModel.imagesUrlList.size != 62) {
-                    urls.await()
+                    episodesViewModel.getImageList()
                 }
 
                 withContext(Dispatchers.Main){

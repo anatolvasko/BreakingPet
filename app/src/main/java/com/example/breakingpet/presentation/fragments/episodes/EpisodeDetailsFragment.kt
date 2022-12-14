@@ -50,6 +50,8 @@ class EpisodeDetailsFragment : Fragment() {
         with(binding) {
             titleValue.text = args.episodeTitle
             airDateValue.text = args.episode.airDate
+            charactersValue.text = args.episode.characters.toString().filter { it !in setOf('[', ']') }
+
         }
 
     }

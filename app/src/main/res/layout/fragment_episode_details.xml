@@ -69,29 +69,30 @@
         app:layout_constraintTop_toTopOf="@+id/air_date" />
 
 
-    <!--<TextView
-        android:id="@+id/portrayed"
+    <TextView
+        android:id="@+id/characters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Portrayed:"
+        android:text="Characters:"
         android:textColor="@color/green_01"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/nickname"
-        app:layout_constraintTop_toBottomOf="@+id/nickname_value" />
+        app:layout_constraintStart_toStartOf="@+id/air_date"
+        app:layout_constraintTop_toBottomOf="@+id/air_date_value" />
 
     <TextView
-        android:id="@+id/portrayed_value"
-        android:layout_width="wrap_content"
+        android:id="@+id/characters_value"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:text=""
         android:textColor="@color/green_01"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/portrayed"
-        app:layout_constraintTop_toTopOf="@+id/portrayed" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/characters"
+        app:layout_constraintTop_toTopOf="@+id/characters" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/occupation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

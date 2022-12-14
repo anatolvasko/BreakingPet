@@ -8,16 +8,28 @@
     android:layout_height="match_parent"
     tools:context=".presentation.fragments.home.HomeFragment">
 
-    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-        android:id="@+id/youtube_player_view"
-        app:videoId="VaOt6tXyf2Y"
-        app:autoPlay="false"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/official_trailer"
+        android:layout_margin="8dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube_player_view"
+        android:layout_width="match_parent"
+        android:foreground="@drawable/shape_image_borders"
+        android:padding="5dp"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="8dp"
+        app:autoPlay="false"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:videoId="VaOt6tXyf2Y"
+        tools:layout_editor_absoluteX="0dp" />
 
 
     <!--<com.google.android.youtube.player.YouTubePlayerView
@@ -30,14 +42,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />-->
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/home"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
