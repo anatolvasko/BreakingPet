@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.breakingpet.R
 import com.example.breakingpet.data.database.entities.CharacterEntity
 import com.example.breakingpet.databinding.FragmentCharactersBinding
@@ -18,6 +19,7 @@ import com.example.breakingpet.domain.model.characters.Character
 import com.example.breakingpet.presentation.recyclerview.CharacterAdapter
 import com.example.breakingpet.presentation.viewmodel.CharactersViewModel
 import com.example.breakingpet.utils.Resource
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlin.concurrent.thread
@@ -40,6 +42,9 @@ class CharactersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+        bottomNavigationView?.isVisible = true
+
         charactersViewModel.allCharacters.observe(viewLifecycleOwner) {
 
             val characterAdapter = CharacterAdapter(
@@ -52,10 +57,12 @@ class CharactersFragment : Fragment() {
 
                     }
                 })
+            characterAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
 
             with(binding){
                 recyclerView.layoutManager = GridLayoutManager(context, 2)
                 recyclerView.adapter = characterAdapter
+
                 characterProgressbar.isVisible = it is Resource.Loading && it.data.isNullOrEmpty()
                 characterErrorLinearLayout.isVisible = it is Resource.Error && it.data.isNullOrEmpty()
             }

@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/character_navigation"
+    android:id="@+id/navigation_graph"
     app:startDestination="@id/homeFragment">
 
     <fragment
@@ -10,24 +10,6 @@
         android:name="com.example.breakingpet.presentation.fragments.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/charactersFragment"
-        android:name="com.example.breakingpet.presentation.fragments.characters.CharactersFragment"
-        android:label="@string/characters"
-        tools:layout="@layout/fragment_characters">
-        <action
-            android:id="@+id/action_charactersFragment_to_characterDetailsFragment2"
-            app:destination="@id/characterDetailsFragment2" />
-    </fragment>
-    <fragment
-        android:id="@+id/episodesFragment"
-        android:name="com.example.breakingpet.presentation.fragments.episodes.EpisodesFragment"
-        android:label="@string/episodes"
-        tools:layout="@layout/fragment_episodes" >
-        <action
-            android:id="@+id/action_episodesFragment_to_episodeDetailsFragment2"
-            app:destination="@id/episodeDetailsFragment2" />
-    </fragment>
     <fragment
         android:id="@+id/quotesFragment"
         android:name="com.example.breakingpet.presentation.fragments.quotes.QuotesFragment"
@@ -38,30 +20,54 @@
         android:name="com.example.breakingpet.presentation.fragments.deaths.DeathsFragment"
         android:label="@string/deaths"
         tools:layout="@layout/fragment_deaths" />
-    <fragment
-        android:id="@+id/characterDetailsFragment2"
-        android:name="com.example.breakingpet.presentation.fragments.characters.CharacterDetailsFragment"
-        android:label="{characterName}"
-        tools:layout="@layout/fragment_character_details">
-        <argument
-            android:name="character"
-            app:argType="com.example.breakingpet.domain.model.characters.Character" />
-        <argument
-            android:name="characterName"
-            app:argType="string" />
+    <navigation android:id="@+id/nav_graph_characters"
+        app:startDestination="@id/charactersFragment">
+        <fragment
+            android:id="@+id/charactersFragment"
+            android:name="com.example.breakingpet.presentation.fragments.characters.CharactersFragment"
+            android:label="@string/characters"
+            tools:layout="@layout/fragment_characters">
+            <action
+                android:id="@+id/action_charactersFragment_to_characterDetailsFragment2"
+                app:destination="@id/characterDetailsFragment2" />
+        </fragment>
+        <fragment
+            android:id="@+id/characterDetailsFragment2"
+            android:name="com.example.breakingpet.presentation.fragments.characters.CharacterDetailsFragment"
+            android:label="{characterName}"
+            tools:layout="@layout/fragment_character_details">
+            <argument
+                android:name="character"
+                app:argType="com.example.breakingpet.domain.model.characters.Character" />
+            <argument
+                android:name="characterName"
+                app:argType="string" />
 
-    </fragment>
-    <fragment
-        android:id="@+id/episodeDetailsFragment2"
-        android:name="com.example.breakingpet.presentation.fragments.episodes.EpisodeDetailsFragment"
-        android:label="{episodeTitle}"
-        tools:layout="@layout/fragment_episode_details" >
-        <argument
-            android:name="episode"
-            app:argType="com.example.breakingpet.domain.model.episodes.Episode" />
-        <argument
-            android:name="episodeTitle"
-            app:argType="string" />
-    </fragment>
+        </fragment>
+    </navigation>
+    <navigation android:id="@+id/nav_graph_episodes"
+        app:startDestination="@id/episodesFragment">
+        <fragment
+            android:id="@+id/episodesFragment"
+            android:name="com.example.breakingpet.presentation.fragments.episodes.EpisodesFragment"
+            android:label="@string/episodes"
+            tools:layout="@layout/fragment_episodes">
+            <action
+                android:id="@+id/action_episodesFragment_to_episodeDetailsFragment2"
+                app:destination="@id/episodeDetailsFragment2" />
+        </fragment>
+        <fragment
+            android:id="@+id/episodeDetailsFragment2"
+            android:name="com.example.breakingpet.presentation.fragments.episodes.EpisodeDetailsFragment"
+            android:label="{episodeTitle}"
+            tools:layout="@layout/fragment_episode_details">
+            <argument
+                android:name="episode"
+                app:argType="com.example.breakingpet.domain.model.episodes.Episode" />
+            <argument
+                android:name="episodeTitle"
+                app:argType="string" />
+        </fragment>
+    </navigation>
 
 </navigation>

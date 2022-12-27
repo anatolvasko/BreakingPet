@@ -4,29 +4,22 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/navigation_home"
-
         android:title="@string/home" />
-
     <item
-        android:id="@+id/charactersFragment"
+        android:id="@+id/nav_graph_characters"
         android:icon="@drawable/navigation_characters"
-
         android:title="@string/characters" />
-
     <item
-        android:id="@+id/episodesFragment"
+        android:id="@+id/nav_graph_episodes"
         android:icon="@drawable/navigation_episodes"
-
         android:title="@string/episodes" />
     <item
         android:id="@+id/quotesFragment"
         android:icon="@drawable/navigation_quotes"
-
         android:title="@string/quotes" />
     <item
         android:id="@+id/deathsFragment"
         android:icon="@drawable/navigation_deaths"
-
         android:title="@string/deaths" />
 
 </menu>

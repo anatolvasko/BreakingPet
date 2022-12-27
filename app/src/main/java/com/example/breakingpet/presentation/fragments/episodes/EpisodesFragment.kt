@@ -42,7 +42,6 @@ class EpisodesFragment : Fragment() {
 
             CoroutineScope(Dispatchers.IO).launch {
 
-
                 if (episodesViewModel.imagesUrlList.size != 62) {
                     episodesViewModel.getImageList()
                 }
@@ -53,11 +52,7 @@ class EpisodesFragment : Fragment() {
                         it.data!!,
                         object : EpisodeAdapter.ItemClickListener {
                             override fun onItemClick(episode: Episode) {
-                                val directions =
-                                    EpisodesFragmentDirections.actionEpisodesFragmentToEpisodeDetailsFragment2(
-                                        episode,
-                                        episode.title
-                                    )
+                                val directions = EpisodesFragmentDirections.actionEpisodesFragmentToEpisodeDetailsFragment2(episode, episode.title)
                                 findNavController().navigate(directions = directions)
                             }
                         },
