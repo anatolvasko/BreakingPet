@@ -14,16 +14,13 @@ import com.example.breakingpet.domain.model.episodes.Episode
 import com.example.breakingpet.presentation.recyclerview.EpisodeAdapter
 import com.example.breakingpet.presentation.viewmodel.EpisodesViewModel
 import com.example.breakingpet.utils.Resource
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 
 @AndroidEntryPoint
 class EpisodesFragment : Fragment() {
     private lateinit var binding: FragmentEpisodesBinding
-    private val episodesViewModel: EpisodesViewModel by viewModels()
+    private val viewModel: EpisodesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,12 +35,13 @@ class EpisodesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.episodesProgressbar.isVisible = true
 
-        episodesViewModel.allEpisodes.observe(viewLifecycleOwner) {
+        viewModel.allEpisodes.observe(viewLifecycleOwner) {
 
             CoroutineScope(Dispatchers.IO).launch {
 
-                if (episodesViewModel.imagesUrlList.size != 62) {
-                    episodesViewModel.getImageList()
+
+                if (viewModel.imagesUrlList.size != 62) {
+                    viewModel.getImageList()
                 }
 
                 withContext(Dispatchers.Main){
@@ -56,7 +54,7 @@ class EpisodesFragment : Fragment() {
                                 findNavController().navigate(directions = directions)
                             }
                         },
-                        episodesViewModel.imagesUrlList
+                        viewModel.imagesUrlList
                     )
 
                     with(binding) {
@@ -75,4 +73,6 @@ class EpisodesFragment : Fragment() {
             }
         }
     }
+
+
 }

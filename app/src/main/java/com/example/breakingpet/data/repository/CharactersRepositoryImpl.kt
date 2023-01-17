@@ -9,6 +9,7 @@ import com.example.breakingpet.utils.Resource
 import com.example.breakingpet.utils.networkBoundResource
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -31,6 +32,9 @@ class CharactersRepositoryImpl @Inject constructor(
             saveFetchResult = { characters ->
                 charactersDao.deleteAllCharacters()
                 charactersDao.insertCharacter(characters.map { it.toCharacterEntity() })
+            },
+            shouldFetch = {
+                it.isNotEmpty()
             }
         )
     }

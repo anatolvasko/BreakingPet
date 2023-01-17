@@ -16,6 +16,9 @@ interface CharactersDao {
     @Query("SELECT * FROM characters")
     fun getAllCharacters(): Flow<List<CharacterEntity>>
 
+    @Query("SELECT * FROM characters")
+    fun getAllCharactersList(): List<CharacterEntity>
+
     @Query("DELETE FROM characters")
     suspend fun deleteAllCharacters()
 

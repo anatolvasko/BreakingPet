@@ -1,12 +1,15 @@
 package com.example.breakingpet.presentation.fragments.characters
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.isVisible
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -34,16 +37,12 @@ class CharactersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentCharactersBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
-        bottomNavigationView?.isVisible = true
 
         charactersViewModel.allCharacters.observe(viewLifecycleOwner) {
 
@@ -73,5 +72,19 @@ class CharactersFragment : Fragment() {
             charactersViewModel.getCharactersList()
             binding.refreshCharacters.isRefreshing = false
         }
+    }
+
+    fun BottomNavigationView.showUp() {
+        animate().setDuration(200L).translationY(0f).withStartAction { visibility = View.VISIBLE }.start()
+    }
+
+    fun BottomNavigationView.hideDown() {
+        animate().setDuration(200L).translationY(height.toFloat()).withEndAction { visibility = View.GONE }.start()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+        bottomNavigationView?.showUp()
     }
 }
