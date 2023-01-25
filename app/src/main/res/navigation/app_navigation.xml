@@ -10,10 +10,10 @@
         android:name="com.example.breakingpet.presentation.fragments.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_map_fragment"
-            app:destination="@id/map_fragment" />
     </fragment>
+    <action
+        android:id="@+id/action_to_map_fragment"
+        app:destination="@id/map_fragment" />
     <fragment
         android:id="@+id/quotesFragment"
         android:name="com.example.breakingpet.presentation.fragments.quotes.QuotesFragment"
@@ -76,7 +76,7 @@
     <fragment
         android:id="@+id/map_fragment"
         android:name="com.example.breakingpet.presentation.fragments.MapFragment"
-        android:label="@string/scene"
+        android:label="@string/location"
         tools:layout="@layout/fragment_map"
         />
 

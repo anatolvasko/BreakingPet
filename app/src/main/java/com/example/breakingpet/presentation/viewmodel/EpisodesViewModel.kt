@@ -2,22 +2,13 @@ package com.example.breakingpet.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import com.example.breakingpet.databinding.FragmentEpisodesBinding
-import com.example.breakingpet.domain.model.episodes.Episode
 import com.example.breakingpet.domain.usecase.GetEpisodesListUseCase
-import com.example.breakingpet.presentation.fragments.episodes.EpisodesFragmentDirections
-import com.example.breakingpet.presentation.recyclerview.EpisodeAdapter
-import com.example.breakingpet.utils.Resource
-import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,6 +24,7 @@ class EpisodesViewModel @Inject constructor(
 
     suspend fun getImageList() {
         imagesUrlList.clear()
+
         withContext(Dispatchers.IO) {
             mDataBase.collection("posters")
                 .get()

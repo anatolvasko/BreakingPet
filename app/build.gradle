@@ -5,7 +5,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services'
     id 'androidx.navigation.safeargs.kotlin'
-
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -131,6 +131,9 @@ dependencies {
 
     //Swipe to refresh
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    //Google maps
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 
     
 }

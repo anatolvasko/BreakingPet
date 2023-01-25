@@ -17,7 +17,7 @@
     <string name="get_random_quote">Get random quote</string>
     <string name="author">Author:</string>
     <string name="official_trailer">Official Trailer:</string>
-    <string name="scene">Scene</string>
+    <string name="location">Location</string>
     <string name="openDrawer">Drawer navigation opened</string>
     <string name="closeDrawer">Drawer navigation closed</string>
 </resources>

@@ -13,53 +13,64 @@
         android:orientation="vertical"
         tools:context=".presentation.MainActivity">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment_container"
-            android:name="androidx.navigation.fragment.NavHostFragment"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/app_navigation" />
+            android:background="@color/green_03">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@color/green_01"
-            app:itemBackground="@drawable/bottom_navigation_selector"
-            app:itemIconTint="@color/white"
-            app:itemTextAppearanceActive="@style/ItemTextAppearanceActive"
-            app:itemTextColor="@color/white"
-            app:labelVisibilityMode="labeled"
-            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
-            app:menu="@menu/bottom_navigation_menu" />
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/green_01"
+                app:itemBackground="@drawable/bottom_navigation_selector"
+                app:itemIconTint="@color/white"
+                app:itemTextAppearanceActive="@style/ItemTextAppearanceActive"
+                app:itemTextColor="@color/white"
+                app:labelVisibilityMode="labeled"
+                app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:menu="@menu/bottom_navigation_menu" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment_container2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_container"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:defaultNavHost="true"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navGraph="@navigation/app_navigation" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!--<include
+        android:id="@+id/app_bar_main"
+        layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        />-->
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/drawer_navigation"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/navigation_drawer_menu"
-        app:headerLayout="@layout/drawer_header"
+        android:background="@color/green_03"
         android:fitsSystemWindows="true"
+        app:headerLayout="@layout/drawer_header"
+
+        app:itemTextAppearanceActive="@style/ItemTextAppearanceActive"
         app:itemTextColor="@color/green_01"
-        android:background="@color/green_03" />
+
+        app:menu="@menu/navigation_drawer_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

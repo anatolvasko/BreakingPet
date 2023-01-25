@@ -3,6 +3,7 @@
 
     <item
         android:id="@+id/location_albuquerque"
-        android:title="@string/scene" />
+        android:title="@string/location" />
+
 
 </menu>
