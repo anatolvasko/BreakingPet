@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "1407189effa6acfc5a920e410d0ce7e3",
+    "identityHash": "273896e1acc2f686ddd6fedb0b2bae06",
     "entities": [
       {
         "tableName": "characters",
@@ -76,17 +76,17 @@
           }
         ],
         "primaryKey": {
+          "autoGenerate": true,
           "columnNames": [
             "idPrimary"
-          ],
-          "autoGenerate": true
+          ]
         },
         "indices": [],
         "foreignKeys": []
       },
       {
         "tableName": "episodes",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPrimary` INTEGER PRIMARY KEY AUTOINCREMENT, `episodeID` INTEGER NOT NULL, `title` TEXT NOT NULL, `season` TEXT NOT NULL, `airDate` TEXT NOT NULL, `characters` TEXT NOT NULL, `episode` TEXT NOT NULL, `series` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPrimary` INTEGER PRIMARY KEY AUTOINCREMENT, `episodeID` INTEGER NOT NULL, `title` TEXT NOT NULL, `season` TEXT NOT NULL, `airDate` TEXT NOT NULL, `characters` TEXT NOT NULL, `episode` TEXT NOT NULL, `series` TEXT NOT NULL, `description` TEXT NOT NULL, `rating` TEXT NOT NULL, `img` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "idPrimary",
@@ -135,13 +135,31 @@
             "columnName": "series",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rating",
+            "columnName": "rating",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "img",
+            "columnName": "img",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
+          "autoGenerate": true,
           "columnNames": [
             "idPrimary"
-          ],
-          "autoGenerate": true
+          ]
         },
         "indices": [],
         "foreignKeys": []
@@ -182,10 +200,10 @@
           }
         ],
         "primaryKey": {
+          "autoGenerate": true,
           "columnNames": [
             "idPrimary"
-          ],
-          "autoGenerate": true
+          ]
         },
         "indices": [],
         "foreignKeys": []
@@ -194,7 +212,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1407189effa6acfc5a920e410d0ce7e3')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '273896e1acc2f686ddd6fedb0b2bae06')"
     ]
   }
 }

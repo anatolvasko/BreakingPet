@@ -5,13 +5,13 @@ import com.example.breakingpet.data.database.dao.CharactersDao
 import com.example.breakingpet.data.network.characters.CharactersApi
 import com.example.breakingpet.data.repository.CharactersRepositoryImpl
 import com.example.breakingpet.domain.repository.CharactersRepository
-import com.example.breakingpet.domain.usecase.GetCharactersListUseCase
+import com.example.breakingpet.domain.usecase.characters.GetCharactersListUseCase
+import com.example.breakingpet.domain.usecase.characters.UpdateCharactersDBUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -22,6 +22,12 @@ object CharacterModule {
     @Singleton
     fun provideGetCharactersUseCase(charactersRepository: CharactersRepository): GetCharactersListUseCase {
         return GetCharactersListUseCase(charactersRepository = charactersRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUpdateCharactersDBUseCase(charactersRepository: CharactersRepository) : UpdateCharactersDBUseCase {
+        return UpdateCharactersDBUseCase(charactersRepository = charactersRepository)
     }
 
     @Provides

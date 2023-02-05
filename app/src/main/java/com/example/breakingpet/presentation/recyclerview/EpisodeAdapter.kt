@@ -24,7 +24,8 @@ class EpisodeAdapter @Inject constructor(
             binding.episodeTitle.text = episode.title
 
             Glide.with(itemView.context)
-                .load(imagesUrlList[episode.episodeID-1])
+                .load(episode.img)
+                //.load(imagesUrlList[episode.episodeID-1])
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .placeholder(R.drawable.character_without_photo)
                 .into(binding.imageView)

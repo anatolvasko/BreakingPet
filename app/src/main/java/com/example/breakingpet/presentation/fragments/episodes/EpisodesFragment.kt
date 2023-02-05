@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.breakingpet.databinding.FragmentEpisodesBinding
 import com.example.breakingpet.domain.model.episodes.Episode
 import com.example.breakingpet.presentation.recyclerview.EpisodeAdapter
@@ -33,9 +34,28 @@ class EpisodesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.episodesProgressbar.isVisible = true
+        //binding.episodesProgressbar.isVisible = true
 
-        viewModel.allEpisodes.observe(viewLifecycleOwner) {
+        viewModel.allEpisodes.observe(viewLifecycleOwner){
+
+            val episodeAdapter = it.data?.let { episodesList ->
+                EpisodeAdapter(
+                    episodesList,
+                    getItemClickListener(),
+                    ArrayList()
+                )
+            }
+
+            with(binding) {
+                recyclerView.layoutManager = GridLayoutManager(context, 2)
+                recyclerView.adapter = episodeAdapter
+                episodesProgressbar.isVisible = it is Resource.Loading && it.data.isNullOrEmpty()
+                episodesErrorLinearLayout.isVisible =
+                    it is Resource.Error && it.data.isNullOrEmpty()
+            }
+        }
+
+        /*viewModel.allEpisodes.observe(viewLifecycleOwner) {
 
             CoroutineScope(Dispatchers.IO).launch {
 
@@ -57,6 +77,9 @@ class EpisodesFragment : Fragment() {
                         viewModel.imagesUrlList
                     )
 
+                    episodeAdapter.stateRestorationPolicy =
+                        RecyclerView.Adapter.StateRestorationPolicy.ALLOW
+
                     with(binding) {
 
                         recyclerView.layoutManager = GridLayoutManager(context, 2)
@@ -70,6 +93,15 @@ class EpisodesFragment : Fragment() {
                     recyclerView.layoutManager = GridLayoutManager(context, 2)
                     recyclerView.adapter = episodeAdapter
                 }
+            }
+        }*/
+    }
+
+    private fun getItemClickListener() : EpisodeAdapter.ItemClickListener {
+        return object : EpisodeAdapter.ItemClickListener {
+            override fun onItemClick(episode: Episode) {
+                val directions = EpisodesFragmentDirections.actionEpisodesFragmentToEpisodeDetailsFragment2(episode, episode.title)
+                findNavController().navigate(directions = directions)
             }
         }
     }

@@ -11,13 +11,10 @@ import kotlinx.coroutines.flow.Flow
 interface CharactersDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE )
-    suspend fun insertCharacter(characters: List<CharacterEntity>)
+    suspend fun insertCharacters(characters: List<CharacterEntity>)
 
     @Query("SELECT * FROM characters")
     fun getAllCharacters(): Flow<List<CharacterEntity>>
-
-    @Query("SELECT * FROM characters")
-    fun getAllCharactersList(): List<CharacterEntity>
 
     @Query("DELETE FROM characters")
     suspend fun deleteAllCharacters()

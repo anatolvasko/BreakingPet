@@ -2,7 +2,7 @@ package com.example.breakingpet.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.breakingpet.domain.usecase.GetCharactersListUseCase
+import com.example.breakingpet.domain.usecase.characters.GetCharactersListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,12 +15,9 @@ class MainViewModel @Inject constructor(
     private val getCharactersListUseCase: GetCharactersListUseCase
 ) : ViewModel() {
 
-    //splash screen
     private val _isLoading = MutableStateFlow(true)
     val isLoading = _isLoading.asStateFlow()
 
-
-    //splash screen
     init {
         viewModelScope.launch {
             delay(500)

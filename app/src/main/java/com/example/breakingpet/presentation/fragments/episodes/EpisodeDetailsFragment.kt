@@ -31,7 +31,12 @@ class EpisodeDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        imageRef
+        Glide.with(view.context)
+            .load(args.episode.img)
+            .placeholder(R.drawable.character_without_photo)
+            .into(binding.episodePhoto)
+
+        /*imageRef
             .child("images/${args.episode.episodeID}.jpeg")
             .downloadUrl
             .addOnSuccessListener {
@@ -45,15 +50,15 @@ class EpisodeDetailsFragment : Fragment() {
                     "Poster for ${args.episode.title} is not downloaded",
                     Toast.LENGTH_LONG
                 ).show()
-            }
+            }*/
 
         with(binding) {
             titleValue.text = args.episodeTitle
             airDateValue.text = args.episode.airDate
             charactersValue.text = args.episode.characters.toString().filter { it !in setOf('[', ']') }
-
+            descriptionValue.text = args.episode.description
+            episodeRatingValue.text = args.episode.rating
         }
-
     }
 
 }

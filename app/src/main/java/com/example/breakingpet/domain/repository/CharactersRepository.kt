@@ -9,4 +9,6 @@ interface CharactersRepository {
 
      fun getCharactersList(): Flow<Resource<List<Character>>>
 
+     suspend fun updateDatabase()
+
 }

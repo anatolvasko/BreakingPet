@@ -19,7 +19,7 @@ class EpisodesViewModel @Inject constructor(
     private val _allEpisodes = getEpisodesListUseCase.getEpisodesList().asLiveData()
     val allEpisodes = _allEpisodes
 
-     val mDataBase = Firebase.firestore
+    private val mDataBase = Firebase.firestore
     val imagesUrlList = ArrayList<String>()
 
     suspend fun getImageList() {

@@ -17,7 +17,10 @@ data class EpisodeEntity(
     val airDate: String,
     val characters: List<String>,
     val episode: String,
-    val series: String
+    val series: String,
+    val description: String,
+    val rating: String,
+    val img: String
 ) {
 
     fun toEpisode() : Episode {
@@ -28,7 +31,10 @@ data class EpisodeEntity(
             airDate = airDate,
             characters = characters,
             episode = episode,
-            series = series
+            series = series,
+            description = description,
+            rating = rating,
+            img = img
         )
     }
 

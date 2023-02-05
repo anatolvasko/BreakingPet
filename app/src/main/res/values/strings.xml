@@ -20,4 +20,13 @@
     <string name="location">Location</string>
     <string name="openDrawer">Drawer navigation opened</string>
     <string name="closeDrawer">Drawer navigation closed</string>
+    <string name="description">Description:</string>
+    <string name="cast">Cast:</string>
+    <string name="albuquerque">Albuquerque</string>
+    <string name="exit">Exit</string>
+    <string name="exit_icon">exit_icon</string>
+    <string name="are_you_sure_bitch">Are you sure, Bitch?</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="undefined">undefined</string>
 </resources>

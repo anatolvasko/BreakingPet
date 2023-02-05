@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 interface EpisodesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertEpisode(episodes: List<EpisodeEntity>)
+    suspend fun insertEpisodes(episodes: List<EpisodeEntity>)
 
     @Query( "SELECT * FROM episodes" )
     fun getAllEpisodes() : Flow<List<EpisodeEntity>>

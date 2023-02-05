@@ -30,7 +30,7 @@ class EpisodesRepositoryImpl @Inject constructor(
             },
             saveFetchResult = { episodes ->
                 episodesDao.deleteAllEpisodes()
-                episodesDao.insertEpisode(episodes.map { it.toEpisodeEntity() })
+                episodesDao.insertEpisodes(episodes.map { it.toEpisodeEntity() })
             },
             shouldFetch = {
                 it.isNotEmpty()

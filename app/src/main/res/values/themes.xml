@@ -13,5 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/green_01</item>
         <!-- Customize your theme here. -->
         <item name="fontFamily">@font/jet_brains_mono_regular</item>
+        <item name="statusBarBackground">@color/green_01</item>
+
+        <item name="colorSurface">@color/green_01</item>
+
+
     </style>
 </resources>
