@@ -32,14 +32,15 @@ class CharactersRepositoryImpl @Inject constructor(
             saveFetchResult = { characters ->
                 charactersDao.deleteAllCharacters()
                 charactersDao.insertCharacters(characters.map { it.toCharacterEntity() })
-            },
+            }/*,
             shouldFetch = {
                 it.isNotEmpty()
-            }
+            }*/
         )
     }
 
     override suspend fun updateDatabase() {
+
         val list = charactersApi.getAllCharacters()
         charactersDao.deleteAllCharacters()
         charactersDao.insertCharacters(list)
