@@ -8,4 +8,6 @@ interface EpisodesRepository {
 
     fun getEpisodesList(): Flow<Resource<List<Episode>>>
 
+    suspend fun updateEpisodesDatabase()
+
 }

@@ -11,5 +11,4 @@
         android:src="@drawable/formula"
         />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

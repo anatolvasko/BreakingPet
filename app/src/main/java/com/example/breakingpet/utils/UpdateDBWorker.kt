@@ -21,14 +21,10 @@ class UpdateDbWorker @AssistedInject constructor(
 ) {
     override suspend fun doWork(): Result {
 
-
-        val list = charactersApi.getAllCharacters()
+        val listOfCharacters = charactersApi.getAllCharacters()
         charactersDao.deleteAllCharacters()
-        //charactersDao.insertCharacters(list)
-
+        charactersDao.insertCharacters(listOfCharacters)
 
         return Result.success()
     }
-
-
 }

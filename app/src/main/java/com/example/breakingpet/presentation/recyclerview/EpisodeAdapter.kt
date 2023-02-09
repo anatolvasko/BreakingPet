@@ -13,23 +13,21 @@ import javax.inject.Inject
 
 class EpisodeAdapter @Inject constructor(
     private val episodesList: List<Episode>,
-    private val itemClickListener: ItemClickListener,
-    private val imagesUrlList: List<String>
+    private val itemClickListener: ItemClickListener
 ) : RecyclerView.Adapter<EpisodeAdapter.EpisodeHolder>() {
 
     inner class EpisodeHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = RecyclerEpisodeItemBinding.bind(itemView)
 
         fun bind(episode: Episode) {
+
             binding.episodeTitle.text = episode.title
 
             Glide.with(itemView.context)
                 .load(episode.img)
-                //.load(imagesUrlList[episode.episodeID-1])
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .placeholder(R.drawable.character_without_photo)
                 .into(binding.imageView)
-
         }
     }
 
@@ -42,7 +40,6 @@ class EpisodeAdapter @Inject constructor(
 
     override fun onBindViewHolder(holder: EpisodeHolder, position: Int) {
         holder.bind(episodesList[position])
-
         holder.itemView.setOnClickListener {
             itemClickListener.onItemClick(episodesList[position])
         }
@@ -55,5 +52,4 @@ class EpisodeAdapter @Inject constructor(
     interface ItemClickListener {
         fun onItemClick(episode: Episode)
     }
-
 }

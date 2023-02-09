@@ -22,5 +22,4 @@ class QuotesViewModel @Inject constructor(
             randomQuote.postValue(getRandomQuoteUseCase.getRandomQuote())
         }
     }
-
 }

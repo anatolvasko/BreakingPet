@@ -9,8 +9,7 @@ class GetRandomQuoteUseCase @Inject constructor(
     private val quotesRepository: QuotesRepository
 ) {
 
-    suspend fun getRandomQuote() : Quote{
+    suspend fun getRandomQuote(): Quote {
         return quotesRepository.getRandomQuote()
     }
-
 }

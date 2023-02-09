@@ -16,7 +16,7 @@ data class Character(
     val birthday: String,
     val category: String,
     val appearance: List<Int>
-) : Serializable{
+) : Serializable {
 
     fun toCharacterEntity() = CharacterEntity(
         characterID = characterID,
@@ -30,7 +30,6 @@ data class Character(
         category = category,
         appearance = appearance
     )
-
 }
 
 

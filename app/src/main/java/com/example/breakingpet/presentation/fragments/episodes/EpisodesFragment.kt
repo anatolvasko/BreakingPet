@@ -9,17 +9,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.breakingpet.R
 import com.example.breakingpet.databinding.FragmentEpisodesBinding
 import com.example.breakingpet.domain.model.episodes.Episode
 import com.example.breakingpet.presentation.recyclerview.EpisodeAdapter
 import com.example.breakingpet.presentation.viewmodel.EpisodesViewModel
 import com.example.breakingpet.utils.Resource
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
 
 @AndroidEntryPoint
 class EpisodesFragment : Fragment() {
+
     private lateinit var binding: FragmentEpisodesBinding
     private val viewModel: EpisodesViewModel by viewModels()
 
@@ -27,84 +28,62 @@ class EpisodesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentEpisodesBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //binding.episodesProgressbar.isVisible = true
 
-        viewModel.allEpisodes.observe(viewLifecycleOwner){
+        viewModel.allEpisodes.observe(viewLifecycleOwner) {
+
+            with(binding){
+                refreshEpisodes.isRefreshing = false
+                episodesProgressbar.isVisible = it is Resource.Loading && it.data.isNullOrEmpty()
+                episodesErrorLinearLayout.isVisible =
+                    it is Resource.Error && it.data.isNullOrEmpty()
+            }
 
             val episodeAdapter = it.data?.let { episodesList ->
                 EpisodeAdapter(
                     episodesList,
-                    getItemClickListener(),
-                    ArrayList()
+                    getItemClickListener()
                 )
             }
 
             with(binding) {
                 recyclerView.layoutManager = GridLayoutManager(context, 2)
                 recyclerView.adapter = episodeAdapter
-                episodesProgressbar.isVisible = it is Resource.Loading && it.data.isNullOrEmpty()
-                episodesErrorLinearLayout.isVisible =
-                    it is Resource.Error && it.data.isNullOrEmpty()
             }
         }
 
-        /*viewModel.allEpisodes.observe(viewLifecycleOwner) {
-
-            CoroutineScope(Dispatchers.IO).launch {
-
-
-                if (viewModel.imagesUrlList.size != 62) {
-                    viewModel.getImageList()
-                }
-
-                withContext(Dispatchers.Main){
-
-                    val episodeAdapter = EpisodeAdapter(
-                        it.data!!,
-                        object : EpisodeAdapter.ItemClickListener {
-                            override fun onItemClick(episode: Episode) {
-                                val directions = EpisodesFragmentDirections.actionEpisodesFragmentToEpisodeDetailsFragment2(episode, episode.title)
-                                findNavController().navigate(directions = directions)
-                            }
-                        },
-                        viewModel.imagesUrlList
-                    )
-
-                    episodeAdapter.stateRestorationPolicy =
-                        RecyclerView.Adapter.StateRestorationPolicy.ALLOW
-
-                    with(binding) {
-
-                        recyclerView.layoutManager = GridLayoutManager(context, 2)
-                        recyclerView.adapter = episodeAdapter
-                        episodesProgressbar.isVisible = it is Resource.Loading && it.data.isNullOrEmpty()
-                        episodesErrorLinearLayout.isVisible =
-                            it is Resource.Error && it.data.isNullOrEmpty()
-                    }
-
-                    val recyclerView = binding.recyclerView
-                    recyclerView.layoutManager = GridLayoutManager(context, 2)
-                    recyclerView.adapter = episodeAdapter
-                }
-            }
-        }*/
+        binding.refreshEpisodes.setOnRefreshListener {
+            viewModel.updateEpisodesDatabase()
+        }
     }
 
-    private fun getItemClickListener() : EpisodeAdapter.ItemClickListener {
+    private fun getItemClickListener(): EpisodeAdapter.ItemClickListener {
         return object : EpisodeAdapter.ItemClickListener {
             override fun onItemClick(episode: Episode) {
-                val directions = EpisodesFragmentDirections.actionEpisodesFragmentToEpisodeDetailsFragment2(episode, episode.title)
+                val directions =
+                    EpisodesFragmentDirections.actionEpisodesFragmentToEpisodeDetailsFragment2(
+                        episode,
+                        episode.title
+                    )
                 findNavController().navigate(directions = directions)
             }
         }
     }
 
+    private fun BottomNavigationView.showUp() {
+        animate().setDuration(200L).translationY(0f).withStartAction { visibility = View.VISIBLE }
+            .start()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        val bottomNavigationView =
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+        bottomNavigationView?.showUp()
+    }
 }

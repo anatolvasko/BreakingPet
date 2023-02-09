@@ -1,4 +1,4 @@
-package com.example.breakingpet.domain.usecase
+package com.example.breakingpet.domain.usecase.episodes
 
 import com.example.breakingpet.domain.model.episodes.Episode
 import com.example.breakingpet.domain.repository.EpisodesRepository
@@ -13,5 +13,4 @@ class GetEpisodesListUseCase @Inject constructor(
     fun getEpisodesList() : Flow<Resource<List<Episode>>> {
         return episodesRepository.getEpisodesList()
     }
-
 }

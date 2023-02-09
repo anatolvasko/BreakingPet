@@ -10,6 +10,4 @@ interface CharactersApi {
     @GET("characters")
     suspend fun getAllCharacters() : List<CharacterEntity>
 
-
-
 }

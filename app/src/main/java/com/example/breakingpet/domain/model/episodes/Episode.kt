@@ -17,7 +17,7 @@ data class Episode(
     val description: String,
     val rating: String,
     val img: String
-): Serializable {
+) : Serializable {
 
     fun toEpisodeEntity() = EpisodeEntity(
         episodeID = episodeID,
@@ -31,5 +31,4 @@ data class Episode(
         rating = rating,
         img = img
     )
-
 }

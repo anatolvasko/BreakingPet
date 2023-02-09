@@ -1,43 +1,29 @@
 package com.example.breakingpet.presentation.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.example.breakingpet.domain.usecase.GetEpisodesListUseCase
+import androidx.lifecycle.viewModelScope
+import com.example.breakingpet.domain.usecase.episodes.GetEpisodesListUseCase
+import com.example.breakingpet.domain.usecase.episodes.UpdateEpisodesDBUseCase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class EpisodesViewModel @Inject constructor(
-    private val getEpisodesListUseCase: GetEpisodesListUseCase
+    private val getEpisodesListUseCase: GetEpisodesListUseCase,
+    private val updateEpisodesDBUseCase: UpdateEpisodesDBUseCase
 ) : ViewModel() {
 
-    private val _allEpisodes = getEpisodesListUseCase.getEpisodesList().asLiveData()
+    private val _allEpisodes = getEpisodesListUseCase.getEpisodesList().asLiveData() as MutableLiveData
     val allEpisodes = _allEpisodes
 
-    private val mDataBase = Firebase.firestore
-    val imagesUrlList = ArrayList<String>()
-
-    suspend fun getImageList() {
-        imagesUrlList.clear()
-
-        withContext(Dispatchers.IO) {
-            mDataBase.collection("posters")
-                .get()
-                .addOnSuccessListener {
-                    for (document in it) {
-                        for (i in 1..62) {
-                            val imageUrl = document.data[i.toString()]
-                            imagesUrlList.add(imageUrl as String)
-                        }
-                    }
-                }.await()
+    fun updateEpisodesDatabase() {
+        viewModelScope.launch {
+            _allEpisodes.value = updateEpisodesDBUseCase.updateEpisodesDatabase()
         }
     }
-
-
 }

@@ -9,8 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.breakingpet.presentation.fragments.home.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" >
-    </fragment>
+        tools:layout="@layout/fragment_home"></fragment>
     <action
         android:id="@+id/action_to_map_fragment"
         app:destination="@id/map_fragment" />
@@ -24,7 +23,8 @@
         android:name="com.example.breakingpet.presentation.fragments.deaths.DeathsFragment"
         android:label="@string/deaths"
         tools:layout="@layout/fragment_deaths" />
-    <navigation android:id="@+id/nav_graph_characters"
+    <navigation
+        android:id="@+id/nav_graph_characters"
         app:startDestination="@id/charactersFragment">
         <fragment
             android:id="@+id/charactersFragment"
@@ -49,7 +49,8 @@
 
         </fragment>
     </navigation>
-    <navigation android:id="@+id/nav_graph_episodes"
+    <navigation
+        android:id="@+id/nav_graph_episodes"
         app:startDestination="@id/episodesFragment">
         <fragment
             android:id="@+id/episodesFragment"
@@ -76,8 +77,7 @@
     <fragment
         android:id="@+id/map_fragment"
         android:name="com.example.breakingpet.presentation.fragments.MapFragment"
-        android:label="@string/location"
-        tools:layout="@layout/fragment_map"
-        />
+        android:label="@string/albuquerque"
+        tools:layout="@layout/fragment_map" />
 
 </navigation>

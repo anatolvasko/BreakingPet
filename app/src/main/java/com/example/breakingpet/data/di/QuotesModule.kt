@@ -1,11 +1,8 @@
 package com.example.breakingpet.data.di
 
-import com.example.breakingpet.data.network.episodes.EpisodesApi
 import com.example.breakingpet.data.network.quotes.QuotesApi
 import com.example.breakingpet.data.repository.QuotesRepositoryImpl
-import com.example.breakingpet.domain.repository.EpisodesRepository
 import com.example.breakingpet.domain.repository.QuotesRepository
-import com.example.breakingpet.domain.usecase.GetEpisodesListUseCase
 import com.example.breakingpet.domain.usecase.GetRandomQuoteUseCase
 import dagger.Module
 import dagger.Provides

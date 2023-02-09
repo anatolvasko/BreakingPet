@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //splash screen
+        //Splash screen
         installSplashScreen().apply { setKeepOnScreenCondition { viewModel.isLoading.value } }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -51,12 +51,13 @@ class MainActivity : AppCompatActivity() {
         //Handle onBackPressed
         onBackPressedDispatch()
 
-        //configure exit button
+        //Configure exit button
         configureExitButton()
 
     }
 
     private fun configureExitButton() {
+
         binding.exitView.setOnClickListener {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
             val dialog = Dialog(this)
@@ -75,9 +76,7 @@ class MainActivity : AppCompatActivity() {
             val yesButton = dialog.findViewById<TextView>(R.id.dialog_yes_view)
 
             cancelButton.setOnClickListener { dialog.cancel() }
-
             yesButton.setOnClickListener { finish() }
-
         }
     }
 

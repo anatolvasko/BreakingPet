@@ -17,5 +17,4 @@ data class Quote(
         author = author,
         series = series
     )
-
 }

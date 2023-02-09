@@ -2,11 +2,13 @@ package com.example.breakingpet.data.di
 
 import com.example.breakingpet.data.database.AppDataBase
 import com.example.breakingpet.data.database.dao.EpisodesDao
-import com.example.breakingpet.data.network.characters.CharactersApi
 import com.example.breakingpet.data.network.episodes.EpisodesApi
 import com.example.breakingpet.data.repository.EpisodesRepositoryImpl
+import com.example.breakingpet.domain.repository.CharactersRepository
 import com.example.breakingpet.domain.repository.EpisodesRepository
-import com.example.breakingpet.domain.usecase.GetEpisodesListUseCase
+import com.example.breakingpet.domain.usecase.characters.UpdateCharactersDBUseCase
+import com.example.breakingpet.domain.usecase.episodes.GetEpisodesListUseCase
+import com.example.breakingpet.domain.usecase.episodes.UpdateEpisodesDBUseCase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import dagger.Module
@@ -14,7 +16,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -25,6 +26,12 @@ object EpisodesModule {
     @Singleton
     fun provideGetEpisodesUseCase(episodesRepository: EpisodesRepository): GetEpisodesListUseCase {
         return GetEpisodesListUseCase(episodesRepository = episodesRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUpdateEpisodesDBUseCase(episodesRepository: EpisodesRepository) : UpdateEpisodesDBUseCase {
+        return UpdateEpisodesDBUseCase(episodesRepository = episodesRepository)
     }
 
     @Provides

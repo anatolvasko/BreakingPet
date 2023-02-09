@@ -38,6 +38,12 @@ class EpisodesRepositoryImpl @Inject constructor(
         )
     }
 
+    override suspend fun updateEpisodesDatabase() {
+        val episodesList = episodesApi.getAllEpisodes()
+        episodesDao.deleteAllEpisodes()
+        episodesDao.insertEpisodes(episodesList)
+    }
+
     private fun toEpisodesList(list: Flow<List<EpisodeEntity>>): Flow<List<Episode>> {
         return list.map { listEpisodesEntity ->
             listEpisodesEntity.map { episodeEntity ->

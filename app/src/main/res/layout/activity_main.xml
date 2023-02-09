@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:openDrawer="left">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -41,7 +40,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/drawer_navigation"
         android:layout_width="wrap_content"
@@ -55,7 +53,6 @@
         app:itemTextAppearance="@style/ItemTextInDrawer"
         app:itemTextColor="@color/green_01"
         app:menu="@menu/navigation_drawer_menu">
-
 
         <LinearLayout
             android:id="@+id/exit_view"
@@ -96,6 +93,5 @@
         </LinearLayout>
 
     </com.google.android.material.navigation.NavigationView>
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

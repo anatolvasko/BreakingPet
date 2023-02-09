@@ -3,11 +3,7 @@ package com.example.breakingpet.data.di
 import android.content.Context
 import androidx.room.Room
 import com.example.breakingpet.data.database.AppDataBase
-import com.example.breakingpet.data.database.dao.EpisodesDao
-import com.example.breakingpet.data.network.characters.CharactersApi
-import com.example.breakingpet.data.repository.EpisodesRepositoryImpl
-import com.example.breakingpet.domain.repository.EpisodesRepository
-import com.example.breakingpet.domain.usecase.GetEpisodesListUseCase
+import com.example.breakingpet.utils.BreakingConstants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +19,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun baseUrl() = "https://6396667fa68e43e41802ec6a.mockapi.io/api/"
+    fun baseUrl() = BreakingConstants.BASE_URL
 
     @Provides
     @Singleton
@@ -44,11 +40,5 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-
-    /*@Provides
-    @Singleton
-    fun provideStorageReference() : StorageReference {
-        return FirebaseStorage.getInstance().reference
-    }*/
 
 }

@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">BreakingPet</string>
+    <string name="app_name">Breaking Pet</string>
     <string name="home">Home</string>
     <string name="characters">Characters</string>
     <string name="episodes">Episodes</string>
     <string name="quotes">Quotes</string>
     <string name="deaths">Deaths</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="deaths_in_development">Deaths tab\n(In development)</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="character_photo">character_photo</string>
     <string name="character_name">Name:</string>
@@ -29,4 +29,12 @@
     <string name="cancel">Cancel</string>
     <string name="yes">Yes</string>
     <string name="undefined">undefined</string>
+    <string name="error">Error</string>
+    <string name="nickname">Nickname:</string>
+    <string name="portrayed">Portrayed:</string>
+    <string name="occupation">Occupation:</string>
+    <string name="status">Status:</string>
+    <string name="appearance">Appearance:</string>
+    <string name="show_description">A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family\'s future.</string>
+    <string name="bb_awards">bb_awards</string>
 </resources>

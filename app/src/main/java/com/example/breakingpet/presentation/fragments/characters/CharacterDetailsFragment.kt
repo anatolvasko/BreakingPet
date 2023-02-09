@@ -30,7 +30,8 @@ class CharacterDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+        val bottomNavigationView =
+            activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         bottomNavigationView?.isVisible = false
 
         Glide.with(view.context)
@@ -42,11 +43,11 @@ class CharacterDetailsFragment : Fragment() {
             nameValue.text = args.character.name
             nicknameValue.text = args.character.nickname
             portrayedValue.text = args.character.portrayed
-            occupationValue.text = args.character.occupation.toString().filter { it !in setOf('[', ']') }
+            occupationValue.text =
+                args.character.occupation.toString().filter { it !in setOf('[', ']') }
             statusValue.text = args.character.status
-            appearanceValue.text = args.character.appearance.toString().filter { it !in setOf('[', ']') }
+            appearanceValue.text =
+                args.character.appearance.toString().filter { it !in setOf('[', ']') }
         }
-
     }
-
 }

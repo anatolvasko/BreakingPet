@@ -1,6 +1,5 @@
 package com.example.breakingpet.domain.usecase.characters
 
-import android.util.Log
 import com.example.breakingpet.domain.repository.CharactersRepository
 import com.example.breakingpet.domain.model.characters.Character
 import com.example.breakingpet.utils.Resource
@@ -10,16 +9,12 @@ class UpdateCharactersDBUseCase @Inject constructor(
     private val charactersRepository: CharactersRepository
 ) {
 
-    suspend fun updateDatabase(): Resource<List<Character>> {
+    suspend fun updateCharacterDatabase(): Resource<List<Character>> {
         return try {
-            charactersRepository.updateDatabase()
-            Resource.Loading(arrayListOf())
+            charactersRepository.updateCharactersDatabase()
+            Resource.Loading()
         } catch (e: Exception){
-            Resource.Error(e , arrayListOf())
+            Resource.Error(e )
         }
-
-
-
     }
-
 }

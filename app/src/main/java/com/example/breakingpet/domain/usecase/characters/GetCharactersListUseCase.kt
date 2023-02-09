@@ -13,7 +13,4 @@ class GetCharactersListUseCase @Inject constructor(
     fun getCharactersList(): Flow<Resource<List<Character>>> {
         return charactersRepository.getCharactersList()
     }
-
-
-
 }

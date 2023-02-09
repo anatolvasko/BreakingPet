@@ -10,19 +10,35 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp">
+
+        <ImageView
+            android:id="@+id/home_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/bb_awards"
+            android:foreground="@drawable/shape_image_borders"
+            android:padding="4dp"
+            android:src="@drawable/home_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/official_trailer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="260dp"
             android:text="@string/official_trailer"
             android:textColor="@color/green_01"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toBottomOf="@id/home_banner" />
 
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:id="@+id/youtube_player_view"
@@ -32,11 +48,36 @@
             android:foreground="@drawable/shape_image_borders"
             android:padding="5dp"
             app:autoPlay="false"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
             app:videoId="VaOt6tXyf2Y"
-            tools:layout_editor_absoluteX="0dp" />
+            tools:layout_editor_absoluteX="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/official_trailer">
+
+        </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/description"
+            android:textColor="@color/green_01"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/official_trailer"
+            app:layout_constraintTop_toBottomOf="@+id/youtube_player_view" />
+
+        <TextView
+            android:id="@+id/description_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/show_description"
+            android:textColor="@color/green_01"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/official_trailer"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </ScrollView>

@@ -39,11 +39,11 @@ class CharactersRepositoryImpl @Inject constructor(
         )
     }
 
-    override suspend fun updateDatabase() {
+    override suspend fun updateCharactersDatabase() {
 
-        val list = charactersApi.getAllCharacters()
+        val charactersList = charactersApi.getAllCharacters()
         charactersDao.deleteAllCharacters()
-        charactersDao.insertCharacters(list)
+        charactersDao.insertCharacters(charactersList)
 
     }
 

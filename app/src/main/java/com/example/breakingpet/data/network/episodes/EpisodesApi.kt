@@ -1,6 +1,5 @@
 package com.example.breakingpet.data.network.episodes
 
-import com.example.breakingpet.data.database.entities.CharacterEntity
 import com.example.breakingpet.data.database.entities.EpisodeEntity
 import retrofit2.http.GET
 
